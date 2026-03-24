@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Verification Result</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Verification Result</h1>
+
+<div class="hash-box">
+<p><b>Original Hash:</b></p>
+<p class="hash">{{ original_hash }}</p>
+
+<p><b>New Hash:</b></p>
+<p class="hash">{{ new_hash }}</p>
+</div>
+
+{% if status == "authentic" %}
+
+<div class="success">
+✔ Document Authentic
+</div>
+
+{% else %}
+
+<div class="error">
+✖ Document Tampered
+</div>
+
+{% endif %}
+
+<a href="/">
+<button class="back-btn">Back to Home</button>
+</a>
+
+</div>
+
+</body>
+</html>

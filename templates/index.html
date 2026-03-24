@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Secure Document Authentication System</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Secure Document Authentication System</h1>
+<p class="subtitle">LSB Watermarking + SHA-256 Integrity Verification</p>
+
+<hr>
+
+<!-- ================= Upload Section ================= -->
+
+<h2>Upload & Protect Document</h2>
+
+<form method="POST" enctype="multipart/form-data">
+
+<input type="file" name="file" required>
+
+<button type="submit">Upload & Embed Watermark</button>
+
+</form>
+
+{% if message %}
+<div class="message">
+{{ message }}
+</div>
+{% endif %}
+
+<hr>
+
+<!-- ================= Verification Section ================= -->
+
+<h2>Verify Document Integrity</h2>
+
+<form method="POST" action="/verify" enctype="multipart/form-data">
+
+<input type="file" name="verify_file" required>
+
+<button type="submit">Verify Document</button>
+
+</form>
+
+<hr>
+
+<!-- ================= System Info ================= -->
+
+<div class="info">
+
+<h3>System Features</h3>
+
+<ul>
+<li>SHA-256 Hash Generation</li>
+<li>LSB Digital Watermark Embedding</li>
+<li>Document Integrity Verification</li>
+<li>Tamper Detection System</li>
+</ul>
+
+</div>
+
+</div>
+
+</body>
+
+</html>
